@@ -1,15 +1,17 @@
-<h2>Tennis Match</h2>
-<p>Who just scored?</p>
-<button (click)="onClickP1()">Player One</button>
-<button (click)="onClickP2()">Player Two</button>
-<ul>
-    {{ score }}
-</ul>
-<button (click)="onClickNewMatch()">New Match</button>
-<br><br>
+<div align="center">
+  <h2>Tennis Match Score</h2>
+  <button (click)="onClickP1()" [disabled]="isGameOver()">Player One's Point</button>
+  <button (click)="onClickP2()" [disabled]="isGameOver()">Player Two's Point</button>
+  <br><br>
+  <div>
+      {{ score }}
+  </div>
+   <table>
+    <tr *ngFor="let set of sets">
+      <td>{{ set }}</td>
+    </tr>
+  </table>
 
-<table>
-  <tr *ngFor="let x of sets">
-    <td>{{ x }}</td>
-  </tr>
-</table>
+  <br>
+  <button (click)="onClickNewMatch()">New Match</button>
+</div>
